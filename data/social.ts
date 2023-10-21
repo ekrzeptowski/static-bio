@@ -1,4 +1,4 @@
-import type { Social } from "../types/social.ts";
+import type { Social } from "@/types/social.ts";
 
 export const social: Social[] = [
   {
