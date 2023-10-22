@@ -6,7 +6,7 @@ export const links: Link[] = [
     title: "My Blog",
     description: "My personal blog",
     href: "https://blog.example.com",
-    icon: "simple-icons:blog",
+    icon: "simple-icons:blogger",
   },
   {
     id: 2,
@@ -14,5 +14,10 @@ export const links: Link[] = [
     description: "A community of awesome people",
     href: "https://discord.gg/",
     icon: "simple-icons:discord",
+  },
+  {
+    id: 3,
+    title: "StaticBio repository",
+    href: "https://github.com/ekrzeptowski/static-bio",
   },
 ];
