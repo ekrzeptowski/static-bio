@@ -3,5 +3,5 @@ export interface Link {
   title: string;
   description?: string;
   href: string;
-  icon: string;
+  icon?: string;
 }
