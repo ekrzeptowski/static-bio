@@ -1,20 +1,36 @@
 ---
-interface Props {
-  title: string;
-}
+import {config} from "@data/config";
 
-const { title } = Astro.props;
+const {seo} = config;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={seo.lang}>
 <head>
   <meta charset="UTF-8"/>
-  <meta name="description" content="Astro description"/>
+  <meta name="title" content={seo.title}/>
+  <meta name="description" content={seo.description}/>
   <meta name="viewport" content="width=device-width"/>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
   <meta name="generator" content={Astro.generator}/>
-  <title>{title}</title>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content={seo.title}/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:description" content={seo.description}/>
+  <meta property="og:url" content={seo.url}/>
+
+  <!-- Twitter -->
+  <meta property="twitter:title" content={seo.title}/>
+  <meta property="twitter:description" content={seo.description}/>
+  <meta property="twitter:card" content="summary"/>
+  <meta property="twitter:url" content={seo.url}/>
+  {seo.twitter_creator &&
+      <meta property="twitter:creator" content={seo.twitter_creator}/>}
+  {seo.twitter_site &&
+      <meta property="twitter:site" content={seo.twitter_site}/>}
+
+  <title>{seo.title}</title>
 </head>
 <body>
 <slot/>

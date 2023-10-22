@@ -6,7 +6,7 @@ import {social} from "@data/social";
 const Theme = await Astro.glob("../layouts/themes/*/theme.astro");
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout>
     {
         Theme.map(
             (Item) =>
