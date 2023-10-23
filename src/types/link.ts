@@ -4,4 +4,5 @@ export interface Link {
   description?: string;
   href: string;
   icon?: string;
+  slug?: string;
 }

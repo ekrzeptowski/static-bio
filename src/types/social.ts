@@ -3,4 +3,5 @@ export interface Social {
   title: string;
   href: string;
   icon: string;
+  slug?: string;
 }

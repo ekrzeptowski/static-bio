@@ -36,7 +36,7 @@ const {
       <div class="row fadein social-icon-div flex justify-center">
         {
           social.map((profile) => (
-            <a class="social-hover social-link" href={profile.href}>
+            <a class="social-hover social-link" href={profile.slug ? `/go/${profile.slug}` : profile.href}>
               <Icon name={profile.icon} class="social-icon" />
             </a>
           ))
@@ -49,7 +49,7 @@ const {
               <a
                 class="button button-custom_website button button-hover icon-hover flex"
                 rel="noopener noreferrer nofollow"
-                href={link.href}
+                href={link.slug ? `/go/${link.slug}` : link.href}
                 target="_blank"
               >
                 {link.icon && <Icon name={link.icon} class="icon hvr-icon inline" />}

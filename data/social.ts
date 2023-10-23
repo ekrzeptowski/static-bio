@@ -6,12 +6,14 @@ export const social: Social[] = [
     title: "Facebook",
     href: "https://www.facebook.com/",
     icon: "simple-icons:facebook",
+    slug: "fb",
   },
   {
     id: 2,
     title: "Instagram",
     href: "https://www.instagram.com/",
     icon: "simple-icons:instagram",
+    slug: "insta",
   },
   {
     id: 3,
