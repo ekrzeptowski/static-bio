@@ -1,0 +1,73 @@
+---
+import { Icon } from "astro-icon/components";
+import { type ThemeProps } from "@/types/theme";
+
+import "./skeleton-auto.css";
+import "./animations.css";
+import "./brands.css";
+import Avatar from "@/components/Avatar.astro";
+
+const {
+  config: { seo },
+  links,
+  social,
+} = Astro.props as ThemeProps;
+---
+
+<!-- Enables parallax background animations -->
+<div class="background-container">
+  <section class="parallax-background">
+    <div id="object1" class="object1"></div>
+    <div id="object2" class="object2"></div>
+    <div id="object3" class="object3"></div>
+  </section>
+</div>
+<!-- End of parallax background animations -->
+
+<div class="container">
+  <div class="row">
+    <div class="column" style="margin-top: 15%">
+      <Avatar className="rounded-avatar fadein inline" />
+
+      <h1 class="fadein">{seo.title}</h1>
+      <center>
+        <div class="fadein description-parent"><p class="fadein">{seo.description}</p></div>
+      </center>
+      <div class="row fadein social-icon-div flex justify-center">
+        {
+          social.map((profile) => (
+            <a class="social-hover social-link" href={profile.href}>
+              <Icon name={profile.icon} class="social-icon" />
+            </a>
+          ))
+        }
+      </div>
+      <div class="flex flex-col">
+        {
+          links.map((link, index) => (
+            <div style={`--delay: ${index + 1}s`} class="button-entrance">
+              <a
+                class="button button-custom_website button button-hover icon-hover flex"
+                rel="noopener noreferrer nofollow"
+                href={link.href}
+                target="_blank"
+              >
+                {link.icon && <Icon name={link.icon} class="icon hvr-icon inline" />}
+                {link.title}
+                <h4 class="text-xs">{link.description}</h4>
+              </a>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap");
+
+  * {
+    box-sizing: initial;
+  }
+</style>
