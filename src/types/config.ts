@@ -1,5 +1,6 @@
 export interface Config {
   name: string;
+  avatar?: boolean;
   seo: {
     title: string;
     description: string;

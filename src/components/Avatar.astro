@@ -1,6 +1,6 @@
 ---
 import { Picture } from "astro:assets";
-import fs from "fs";
+import { config } from "@data/config";
 
 interface Props {
   className?: string;
@@ -11,7 +11,7 @@ const { className, style } = Astro.props;
 ---
 
 {
-  fs.existsSync("data/avatar.jpg") && (
+  config.avatar && (
     <Picture
       src={import("/data/avatar.jpg")}
       width={128}
