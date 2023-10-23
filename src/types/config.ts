@@ -9,8 +9,6 @@ export interface Config {
     twitter_creator?: string;
     twitter_site?: string;
   };
-  layout: string;
-  theme: string;
   googleAnalytics?: string;
   plausible?: { domain: string; apiHost: string; scriptHost: string };
 }

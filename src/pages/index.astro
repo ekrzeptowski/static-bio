@@ -3,16 +3,12 @@ import Layout from "@/layouts/Layout.astro";
 import {config} from "@data/config";
 import {links} from "@data/links";
 import {social} from "@data/social";
-const Theme = await Astro.glob("../layouts/themes/*/theme.astro");
+
+// Set your theme here
+import Theme from "../layouts/themes/default/theme.astro";
 ---
 
 <Layout>
-    {
-        Theme.map(
-            (Item) =>
-                Item.file.endsWith(config.theme + "/theme.astro") && (
-                            <Item.default config={config} links={links} social={social}/>
-                )
-        )
-    }
+  <Theme config={config} links={links} social={social}/>
+  }
 </Layout>

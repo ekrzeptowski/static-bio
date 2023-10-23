@@ -11,8 +11,6 @@ export const config: Config = {
     twitter_creator: "@YourTwitterHandle",
     twitter_site: "@YourTwitterHandle",
   },
-  layout: "default",
-  theme: "default",
   googleAnalytics: "UA-XXXXXXXXX-X",
   plausible: {
     domain: "example.com",
