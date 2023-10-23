@@ -1,0 +1,25 @@
+---
+import { Picture } from "astro:assets";
+import fs from "fs";
+
+interface Props {
+  className?: string;
+  style?: string;
+}
+
+const { className, style } = Astro.props;
+---
+
+{
+  fs.existsSync("data/avatar.jpg") && (
+    <Picture
+      src={import("/data/avatar.jpg")}
+      width={128}
+      formats={["avif", "webp"]}
+      fallbackFormat="jpg"
+      densities={[1, 2]}
+      alt="Avatar image"
+      class={className}
+    />
+  )
+}
