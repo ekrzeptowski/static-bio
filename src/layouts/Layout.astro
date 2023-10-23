@@ -29,6 +29,17 @@ const { seo } = config;
     {seo.twitter_site && <meta property="twitter:site" content={seo.twitter_site} />}
 
     <title>{seo.title}</title>
+    {
+      config.plausible?.domain && (
+        <script
+          async
+          defer
+          data-domain={config.plausible.domain}
+          src={config.plausible.scriptHost || `https://plausible.io/js/plausible.js`}
+          data-api={config.plausible.apiHost}
+        />
+      )
+    }
   </head>
   <body>
     <slot />
