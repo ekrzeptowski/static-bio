@@ -30,6 +30,21 @@ const { seo } = config;
 
     <title>{seo.title}</title>
     {
+      config.googleAnalytics && (
+        <>
+          <script
+            type="application/javascript"
+            async
+            src={`https://www.googletagmanager.com/gtag/js?id=${config.googleAnalytics}`}
+          />
+          <script is:inline define:vars={{ id: config.googleAnalytics }}>
+            window.dataLayer = window.dataLayer || []; function gtag() {window.dataLayer.push(arguments)}
+            gtag("js", new Date()); gtag("config", id);
+          </script>
+        </>
+      )
+    }
+    {
       config.plausible?.domain && (
         <script
           async
