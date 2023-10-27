@@ -1,4 +1,3 @@
-import type { Link } from "@/types/link.ts";
 import type { Block } from "@/types/block.ts";
 
 export const blocks: Block[] = [
