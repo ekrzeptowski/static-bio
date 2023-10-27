@@ -1,12 +1,13 @@
 export const prerender = false;
 import type { APIRoute } from "astro";
 import { social } from "@data/social";
-import { links } from "@data/links";
+import { blocks } from "@data/blocks.ts";
 
 export const GET: APIRoute = ({ props, redirect }) => {
   const href = props.href;
   return redirect(href, 302);
 };
+
 export function getStaticPaths() {
   let redirects: { params: { slug: string }; props: { href: string } }[] = [];
 
@@ -20,13 +21,14 @@ export function getStaticPaths() {
         },
       })
   );
-  links.forEach(
+  blocks.forEach(
     (site) =>
-      site.slug &&
+      site.type === "link" &&
+      site.link.slug &&
       redirects.push({
-        params: { slug: site.slug },
+        params: { slug: site.link.slug },
         props: {
-          href: site.href,
+          href: site.link.href,
         },
       })
   );

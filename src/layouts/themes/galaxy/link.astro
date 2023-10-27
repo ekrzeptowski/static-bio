@@ -1,0 +1,24 @@
+---
+import { Icon } from "astro-icon/components";
+import type { Link } from "@/types/link";
+
+type Props = {
+  index: number;
+  link: Link;
+};
+
+const { index, link } = Astro.props;
+---
+
+<div style={`--delay: ${index + 1}s`} class="button-entrance">
+  <a
+    class="button button-custom_website button button-hover icon-hover flex"
+    rel="noopener noreferrer nofollow"
+    href={link.slug ? `/go/${link.href}` : link.href}
+    target="_blank"
+  >
+    {link.icon && <Icon name={link.icon} class="icon hvr-icon inline" />}
+    {link.title}
+    <h4 class="text-xs">{link.description}</h4>
+  </a>
+</div>

@@ -6,10 +6,11 @@ import "./skeleton-auto.css";
 import "./animations.css";
 import "./brands.css";
 import Avatar from "@/components/Avatar.astro";
+import Link from "./link.astro";
 
 const {
   config: { seo },
-  links,
+  blocks,
   social,
 } = Astro.props as ThemeProps;
 ---
@@ -44,20 +45,14 @@ const {
       </div>
       <div class="flex flex-col">
         {
-          links.map((link, index) => (
-            <div style={`--delay: ${index + 1}s`} class="button-entrance">
-              <a
-                class="button button-custom_website button button-hover icon-hover flex"
-                rel="noopener noreferrer nofollow"
-                href={link.slug ? `/go/${link.slug}` : link.href}
-                target="_blank"
-              >
-                {link.icon && <Icon name={link.icon} class="icon hvr-icon inline" />}
-                {link.title}
-                <h4 class="text-xs">{link.description}</h4>
-              </a>
-            </div>
-          ))
+          blocks.map((block, index) => {
+            switch (block.type) {
+              case "link":
+                return <Link index={index} link={block.link} />;
+              case "text":
+                return <p class="fadein mb-4 text-lg">{block.text}</p>;
+            }
+          })
         }
       </div>
     </div>

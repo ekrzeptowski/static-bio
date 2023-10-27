@@ -1,0 +1,19 @@
+---
+import { Icon } from "astro-icon/components";
+
+import type { Link } from "@/types/link";
+
+type Props = {
+  link: Link;
+};
+
+const { link } = Astro.props;
+---
+
+<a href={link.slug ? `/go/${link.slug}` : link.href} class="flex items-center gap-2 border p-4 my-2 justify-center">
+  {link.icon && <Icon name={link.icon} class="text-3xl" />}
+  <div class="flex flex-col">
+    <div>{link.title}</div>
+    <p class="text-gray-400 text-xs">{link.description}</p>
+  </div>
+</a>

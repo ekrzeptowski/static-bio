@@ -1,7 +1,7 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import { config } from "@data/config";
-import { links } from "@data/links";
+import { blocks } from "@data/blocks";
 import { social } from "@data/social";
 
 // Set your theme here
@@ -9,5 +9,5 @@ import Theme from "../layouts/themes/galaxy/theme.astro";
 ---
 
 <Layout>
-  <Theme config={config} links={links} social={social} />
+  <Theme config={config} blocks={blocks} social={social} />
 </Layout>
