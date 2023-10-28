@@ -1,54 +1,45 @@
-# Astro Starter Kit: Basics
+# StaticBio - A static bio page generator
 
-```sh
-npm create astro@latest -- --template basics
+![StaticBio generated page screenshot](screenshot.png)
+
+## What is this?
+
+StaticBio is a static bio page generator built with Astro. It's a simple way to create a bio page for yourself, or for your team.
+
+## How to use it?
+
+1. Clone this repository
+2. Edit the files in the `data` folder to your liking
+3. Run `npm run build` to generate the site
+4. Upload the contents of the `dist` folder to your web server
+
+## How to customize it?
+
+There are two themes included, the default theme, and the galaxy theme. To switch themes, edit the `Theme` import path in `src/pages/index.astro` to either `default` or `galaxy`.
+
+To create your own theme, create a folder in `src/layouts/themes` with the name of your theme. The folder should contain an `theme.astro` file. The `theme.astro` file accepts the following props:
+```typescript
+interface ThemeProps {
+    config: Config;     // Site configuration
+    blocks: Block[];    // Blocks of content array
+    social: Social[];   // Social links array
+}
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
+## Project structure
 
 ```text
 /
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+├── data/
+│   ├── avatar.jpg  # Your avatar
+│   ├── blocks.ts   # Blocks of content
+│   ├── config.ts   # Site configuration
+│   └── social.ts   # Social links
+└── src/
+    ├── layouts/
+    │   └── themes/
+    │       ├── default/    # Default theme
+    │       └── galaxy/     # Galaxy theme
+    └── pages/
+        └── index.astro     # Main page
 ```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
